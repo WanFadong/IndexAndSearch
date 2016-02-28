@@ -5,23 +5,27 @@ import java.io.IOException;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.bson.BSONObject;
+import org.bson.types.ObjectId;
 
 public class WordMapper extends Mapper<Object, BSONObject, Text, WordInfoWritable> {
 	private final String defaultDynasty = "唐";
-//	private static int count = 0;
+	 private static int count = 0;
 
 	@Override
 	public void map(Object ikey, BSONObject ivalue, Context context) throws IOException, InterruptedException {
-//		count++;
-//		if (count > 100) {
-//			return;
-//		}
+		count++;
+		if (count > 1) {
+			return;
+		}
 		// 获取信息,组装相应数据；
+		ObjectId objectId = (ObjectId) ivalue.get("_id");
+		String id = objectId.toHexString();
 		String content = (String) ivalue.get("content");
 		String title = (String) ivalue.get("title");
 		String author = (String) ivalue.get("author");
 		String dynasty = defaultDynasty;
 		WordInfoWritable wordInfo = new WordInfoWritable();
+		wordInfo.setId(id);
 		wordInfo.setAuthor(author);
 		wordInfo.setDynasty(dynasty);
 		wordInfo.setTitle(title);

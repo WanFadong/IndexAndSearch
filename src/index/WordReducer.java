@@ -23,6 +23,7 @@ public class WordReducer extends Reducer<Text, WordInfoWritable, Text, BSONWrita
 			// System.out.println(word.toString() + "-------------" +
 			// wordInfo.getVerse());
 			BSONObject wordInfoObject = new BasicBSONObject();
+			wordInfoObject.put("poetry_id", wordInfo.getId());
 			wordInfoObject.put("author", wordInfo.getAuthor());
 			wordInfoObject.put("dynasty", wordInfo.getDynasty());
 			wordInfoObject.put("title", wordInfo.getTitle());
