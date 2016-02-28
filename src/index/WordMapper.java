@@ -14,9 +14,9 @@ public class WordMapper extends Mapper<Object, BSONObject, Text, WordInfoWritabl
 	@Override
 	public void map(Object ikey, BSONObject ivalue, Context context) throws IOException, InterruptedException {
 		count++;
-		if (count > 1) {
-			return;
-		}
+//		if (count > 10000) {
+//			return;
+//		}
 		// 获取信息,组装相应数据；
 		ObjectId objectId = (ObjectId) ivalue.get("_id");
 		String id = objectId.toHexString();
