@@ -12,8 +12,12 @@ public class Output {
 		Map<String, Class<?>> columnMap = new HashMap<String, Class<?>>();
 		columnMap.put("_id", Integer.class);
 		columnMap.put("value", Integer.class);
+		String[] fileNames = { "频数.txt", "典面长度.txt", "诗中位置.txt", "句中位置.txt" };
+		String[] collectionNames = { "frequency", "length", "poetry_index", "verse_index" };
 		try {
-			FileHelper.toFile("频数.txt", "frequency", columnMap);
+			for (int i = 0; i < fileNames.length; i++) {
+				FileHelper.toFile(fileNames[i], collectionNames[i], columnMap);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -42,6 +42,7 @@ public class FileHelper {
 				Class<?> clazz = entry.getValue();
 				Object value = doc.get(name, clazz);// 获取属性
 				writeToFile(writer, value);
+				writeToFile(writer, " ");
 			}
 			writeToFile(writer, "\r\n");
 		}
@@ -59,7 +60,6 @@ public class FileHelper {
 	 */
 	private static void writeToFile(BufferedWriter writer, Object value) throws IOException {
 		writer.write(value.toString());
-		writer.write(" ");
 
 	}
 }
