@@ -187,15 +187,19 @@ public class SearchEngine {
 				wordInfoList.add(wordInfo);
 			}
 		}
+		client.close();
 		return wordInfoList;
 	}
 
 	public static void main(String[] args) {
-		String word = "床前+疑是";
-		List<MultiWordInfo> multiWordInfoList = search(word);
-		System.out.println(multiWordInfoList.size());
-		for (int i = 0; i < multiWordInfoList.size(); i++) {
-			System.out.println(multiWordInfoList.get(i));
+		String[] wordList = { "三山", "白雪", "乘鸾", "武陵", "床前", "看月", "地上霜", "床前看月", "床前看月+地上霜", "床前看月+明月" };
+		for (int j = 0; j < wordList.length; j++) {
+			List<MultiWordInfo> multiWordInfoList = search(wordList[j]);
+			System.out.println("搜索关键词:" + wordList[j] + "|" + "包含搜索词的诗句数量:" + multiWordInfoList.size());
+			for (int i = 0; i < multiWordInfoList.size(); i++) {
+				System.out.println(multiWordInfoList.get(i));
+			}
+			System.out.println("==========================================================");
 		}
 	}
 }

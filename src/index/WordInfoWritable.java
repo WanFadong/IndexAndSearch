@@ -1,5 +1,7 @@
 package index;
-
+/**
+ *  extends ReflectionDBObject 应该是不需要的，但是没有测试
+ */
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
