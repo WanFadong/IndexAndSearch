@@ -152,7 +152,7 @@ public class SearchEngine {
 	/**
 	 * 从mongoDB中搜索关键字，返回List 没有结果返回size=0；
 	 */
-	private static List<WordInfo> searchFromMongo(String word) {
+	public static List<WordInfo> searchFromMongo(String word) {
 		List<WordInfo> wordInfoList = new ArrayList<WordInfo>();
 
 		MongoClient client = new MongoClient("localhost", 27017);

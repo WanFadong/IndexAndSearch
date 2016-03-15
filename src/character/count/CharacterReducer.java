@@ -1,4 +1,4 @@
-package character;
+package character.count;
 
 import java.io.IOException;
 import java.util.Iterator;

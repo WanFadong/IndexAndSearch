@@ -1,4 +1,4 @@
-package character;
+package character.count;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.IntWritable;
@@ -14,10 +14,10 @@ public class CharacterJob {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws Exception {
-		String[] collectionNames = { "frequency2", "length", "poetry_index", "verse_index" };
-		String[] classNames = { "character.FrequencyMapper", "character.LengthMapper", "character.PoetryIndexMapper",
-				"character.VerseIndexMapper" };
-		int i = 3;
+		String[] collectionNames = { "frequency", "length", "index_avg" };
+		String[] classNames = { "character.count.FrequencyMapper", "character.count.LengthMapper",
+				"character.count.IndexAvgMapper" };
+		int i = 2;
 		long start = System.currentTimeMillis();
 		String inputMongoURI = "mongodb://127.0.0.1:27017/allusion.diangu";
 		String outputMongoURI = "mongodb://127.0.0.1:27017/allusion." + collectionNames[i];
@@ -27,7 +27,7 @@ public class CharacterJob {
 
 		Job job = Job.getInstance(conf, "Character");
 
-		job.setJarByClass(character.CharacterJob.class);
+		job.setJarByClass(character.count.CharacterJob.class);
 		job.setMapperClass((Class<? extends Mapper>) Class.forName(classNames[i]));
 		job.setReducerClass(CharacterReducer.class);
 
