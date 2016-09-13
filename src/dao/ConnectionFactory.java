@@ -1,4 +1,4 @@
-package mongoDBUtil;
+package dao;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;

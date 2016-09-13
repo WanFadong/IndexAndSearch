@@ -3,9 +3,19 @@ package model;
 public class WordInPoetryPO {
 	private String poetryId;
 	private String author;
+	private String title;
 	private String dynasty;
 	private String verse;
 	private int offset;
+	private int isPatternVerse;
+
+	public int getIsPatternVerse() {
+		return isPatternVerse;
+	}
+
+	public void setIsPatternVerse(int isPatternVerse) {
+		this.isPatternVerse = isPatternVerse;
+	}
 
 	public String getPoetryId() {
 		return poetryId;
@@ -21,6 +31,14 @@ public class WordInPoetryPO {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getDynasty() {
@@ -46,8 +64,9 @@ public class WordInPoetryPO {
 	public void setOffset(int offset) {
 		this.offset = offset;
 	}
+
 	@Override
-	public String toString(){
-		return poetryId+"#"+verse+"||";
+	public String toString() {
+		return "作者：" + author + "；题目：" + title + "；诗句：" + verse + "\r\n";
 	}
 }

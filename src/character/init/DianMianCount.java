@@ -8,10 +8,10 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-import mongoDBUtil.ConnectionFactory;
+import dao.ConnectionFactory;
 
 public class DianMianCount {
-	private final String colName = "diangu";
+	private final String colName = "diangu_in_index";
 	private final String patternKey = "pattern";
 	private final String totalPatternTable = "total_pattern";
 

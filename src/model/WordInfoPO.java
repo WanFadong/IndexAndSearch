@@ -8,6 +8,24 @@ public class WordInfoPO {
 	private int wordLength;
 	private int wordFrequency;
 	private int indexAvg;
+	private double probability;
+	private int isPattern;// 0,1
+
+	public int getIsPattern() {
+		return isPattern;
+	}
+
+	public void setIsPattern(int isPattern) {
+		this.isPattern = isPattern;
+	}
+
+	public double getProbability() {
+		return probability;
+	}
+
+	public void setProbability(double probability) {
+		this.probability = probability;
+	}
 
 	public int getWordLength() {
 		return wordLength;
@@ -52,10 +70,15 @@ public class WordInfoPO {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(id + "||");
+		builder.append("词语：" + id + "；");
+		builder.append("评分：" + probability + "\r\n");
+		// builder.append("特征：" + wordFrequency + "#" + wordLength + "#" +
+		// indexAvg + "\r\n");
+		// builder.append("典面："+isPattern+"||");
 		for (int i = 0; i < wordInPoetryList.size(); i++) {
 			builder.append(wordInPoetryList.get(i).toString());
 		}
+
 		return builder.toString();
 	}
 

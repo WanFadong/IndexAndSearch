@@ -19,7 +19,7 @@ public class CharacterJob {
 				"character.count.IndexAvgMapper" };
 		int i = 2;
 		long start = System.currentTimeMillis();
-		String inputMongoURI = "mongodb://127.0.0.1:27017/allusion.diangu";
+		String inputMongoURI = "mongodb://127.0.0.1:27017/allusion.diangu_in_index";
 		String outputMongoURI = "mongodb://127.0.0.1:27017/allusion." + collectionNames[i];
 		Configuration conf = new Configuration();
 		MongoConfigUtil.setInputURI(conf, inputMongoURI);

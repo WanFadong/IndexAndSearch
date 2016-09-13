@@ -1,8 +1,8 @@
 package character.count;
 
 /**
- * 对所有分词的几个特征一起wordcount
- * 从inverted_index中获得数据；
+ * 对所有典面的几个特征一起wordcount
+ * 从diangu_in_index中获得数据；
  */
 import java.io.IOException;
 import java.util.List;

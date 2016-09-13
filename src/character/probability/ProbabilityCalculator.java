@@ -7,7 +7,7 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-import mongoDBUtil.ConnectionFactory;
+import dao.ConnectionFactory;
 
 /**
  * p(y|x)=d1.d2.d3/b.c^2
@@ -33,7 +33,7 @@ public class ProbabilityCalculator implements ProbabilityCalService {
 	private final String wordFrequencyKey = "word_frequency";
 	private final String indexAvgKey = "index_avg";
 	private final int fieldNum = 3;
-	private final int defaultId = 1;
+	private final int totalPattern = 4944;
 
 	/**
 	 * keyword限制： 2~3个词； 必须出现在inverted_index表中
@@ -60,12 +60,12 @@ public class ProbabilityCalculator implements ProbabilityCalService {
 		long lengthNum = getData(wordLengthTable, values[1] + "");// d2
 		long indexAvgNum = getData(indexAvgTable, values[2] + "");// d3
 		long allCharacterNum = getData(allCharacterTable, values[0] + "#" + values[1] + "#" + values[2]);// b
-		long patternNum = getData(totalPatternTable, defaultId + "");// c
-		System.out.print(frequencyNum + "|");
-		System.out.print(lengthNum + "|");
-		System.out.print(indexAvgNum + "|");
-		System.out.print(allCharacterNum + "|");
-		System.out.print(patternNum + "|");
+		long patternNum = totalPattern;// c
+//		System.out.print(frequencyNum + "|");
+//		System.out.print(lengthNum + "|");
+//		System.out.print(indexAvgNum + "|");
+//		System.out.print(allCharacterNum + "|");
+//		System.out.print(patternNum + "|");
 		double probability = (frequencyNum * lengthNum * indexAvgNum * 1.0)
 				/ (allCharacterNum * patternNum * patternNum * 1.0);
 
@@ -122,8 +122,8 @@ public class ProbabilityCalculator implements ProbabilityCalService {
 		return value;
 	}
 
-	public void main(String[] args) {
-		String[] wordList = { "三山" };
+	public static void main(String[] args) {
+		String[] wordList = { "三山", "凤凰楼" };
 		for (int i = 0; i < wordList.length; i++) {
 			System.out.println(new ProbabilityCalculator().calProbabilityByWord(wordList[i]));
 		}

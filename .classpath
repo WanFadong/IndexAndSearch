@@ -180,5 +180,11 @@
 	<classpathentry kind="lib" path="/usr/local/hadoop/share/hadoop/common/hadoop-common-2.6.3.jar"/>
 	<classpathentry kind="lib" path="lib/mongo-hadoop-core-1.4.0.jar"/>
 	<classpathentry kind="lib" path="lib/mongo-java-driver-3.2.0.jar"/>
+	<classpathentry kind="lib" path="lib/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="lib/commons-httpclient.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang.jar"/>
+	<classpathentry kind="lib" path="lib/ezmorph-1.0.5.jar"/>
+	<classpathentry kind="lib" path="lib/json-lib-2.2-jdk15.jar"/>
+	<classpathentry kind="lib" path="lib/morph-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
